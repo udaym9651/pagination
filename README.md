@@ -45,3 +45,9 @@ Usage:
   <button>5</button>
 </neupagination>
 ```
+
+# Reference:
+
+<a href="https://neumorphism.io/">neumorphism.io</a>
+
+<a href="https://ismail9k.github.io/neomorphism/">ismail9k.github.io/neomorphism</a>
