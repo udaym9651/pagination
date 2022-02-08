@@ -23,6 +23,12 @@ jobs:
         with:
           #npm.dir: 'C:\hostedtoolcache\windows\node\14.18.3\x64'
           NODE_ENV: 'C:\hostedtoolcache\windows\node\14.18.3\x64'
+      - name: Cache node dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm
       - id: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
