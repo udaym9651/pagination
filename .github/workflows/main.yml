@@ -20,7 +20,8 @@ jobs:
       - name: set environment variables
         uses: allenevans/set-env@v2.0.0
         with:
-          npm.dir: 'C:\hostedtoolcache\windows\node\14.18.3\x64'
+          #npm.dir: 'C:\hostedtoolcache\windows\node\14.18.3\x64'
+          NODE_ENV: 'C:\hostedtoolcache\windows\node\14.18.3\x64'
       - id: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
