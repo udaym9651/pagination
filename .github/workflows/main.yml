@@ -62,8 +62,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #run: ./gradlew assembleDebug sonarqube --info
-      run: ./gradlew sonarqube --info
+      run: ./gradlew assembleDebug sonarqube --info
+      #run: ./gradlew sonarqube --info
     #- name: Upload Artifact
      # uses: actions/upload-artifact@v2
       #with: 
