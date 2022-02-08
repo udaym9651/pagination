@@ -50,14 +50,14 @@ jobs:
         node-version: '14'
         cache: 'npm'
         cache-dependency-path: '**/package-lock.json'
-    - name: Cache node dependencies
-      uses: actions/cache@v1
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: ${{ runner.os }}-npm
+    #- name: Cache node dependencies
+     # uses: actions/cache@v1
+      #with:
+       # path: ~/.npm
+        #key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+        #restore-keys: ${{ runner.os }}-npm
     - run: npm install
-    - run: npm test
+    #- run: npm test
     - name: Hmos Build and analyze code
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
