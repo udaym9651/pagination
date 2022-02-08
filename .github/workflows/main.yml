@@ -17,18 +17,18 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - run: npm install -g win-node-env
-      - name: set environment variables
-        uses: allenevans/set-env@v2.0.0
+      - uses: actions/setup-node@v2
         with:
-          #npm.dir: 'C:\hostedtoolcache\windows\node\14.18.3\x64'
-          NODE_ENV: 'C:\hostedtoolcache\windows\node\14.18.3\x64'
+          node-version: '14'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
       - name: Cache node dependencies
         uses: actions/cache@v1
         with:
           path: ~/.npm
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-npm
+      - run: npm install
       - id: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
