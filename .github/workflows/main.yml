@@ -25,6 +25,7 @@ jobs:
         node-version: '14'
         cache: 'npm'
         cache-dependency-path: '**/package-lock.json'
+    - run: npm ci
     - run: npm install
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
