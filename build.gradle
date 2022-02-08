@@ -1,5 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply plugin: 'com.huawei.ohos.app'
+apply plugin: 'org.sonarqube'
 
 //For instructions on signature configuration, see https://developer.harmonyos.com/en/docs/documentation/doc-guides/ide_debug_device-0000001053822404#section1112183053510
 ohos {
@@ -30,4 +31,14 @@ allprojects {
             url 'https://developer.huawei.com/repo/'
         }
     }
+}
+sonarqube {
+  properties {
+    property "sonar.projectKey", "pagination"
+    property "sonar.organization", "mysonarorg9651"
+    property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.login","c6877d1fe2735752225df6d1895ef2ae8c5b5d3f"
+    property "sonar.sources", "entry,neumorph_pagination"
+    property "sonar.java.binaries", "entry/build,neumorph_pagination/build"
+  }
 }
