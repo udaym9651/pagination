@@ -49,6 +49,7 @@ jobs:
       with:
         node-version: '14'
         cache: 'npm'
+        cache-dependency-path: '**/package-lock.json'
     - name: Cache node dependencies
       uses: actions/cache@v1
       with:
