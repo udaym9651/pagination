@@ -22,8 +22,8 @@ jobs:
           node-version: '14'
           check-latest: true
       - name: NPM install
-        working-directory: ${{ github.workspace }}
         run: npm.cmd install
+        working-directory: ${{ github.workspace }}
       #- run: npm test
       - run: npm -v
       - run: node -v
