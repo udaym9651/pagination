@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '14'
           check-latest: true
-      - run: npm install
+      - run: npm install -g
       - run: npm test
       - run: npm -v
       - run: node -v
