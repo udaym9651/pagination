@@ -17,6 +17,14 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          check-latest: true
+      - run: npm install
+      - run: npm test
+      - run: npm -v
+      - run: node -v
       - id: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
