@@ -26,7 +26,7 @@ jobs:
         working-directory: ${{ github.workspace }}
       #- run: npm test
       - run: npm.cmd -v
-      - run: node.cmd -v
+      - run: node -v
       - id: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
