@@ -28,7 +28,7 @@ jobs:
       - run: npm.cmd -v
       - run: node -v
       - name: copy local.properties
-        run: (echo npm.dir=C\:\\Program Files\\nodejs && echo node.dir=C\:\\Program Files\\nodejs) > ${{ github.workspace }}/local.properties
+        run: (echo npm.dir=C\:\\"Program Files"\\nodejs && echo node.dir=C\:\\Program Files\\nodejs) > ${{ github.workspace }}/local.properties
         #run: (echo npm.dir=C\:\\hostedtoolcache\\windows\\node\\14.18.3\\x64 && echo node.dir=C\:\\hostedtoolcache\\windows\\node\\14.18.3\\x64) > ${{ github.workspace }}/local.properties
       - run: dir ${{ github.workspace }}
       - run: type ${{ github.workspace }}/local.properties
