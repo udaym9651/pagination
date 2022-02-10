@@ -1,0 +1,44 @@
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  hello_world_job:
+    runs-on: windows-latest
+    name: Build and Analyse
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          check-latest: true
+      - name: NPM install
+        run: npm.cmd install
+        working-directory: ${{ github.workspace }}
+      #- run: npm test
+      - run: npm.cmd -v
+      - run: node -v
+      - name: copy local.properties
+        run: (echo npm.dir=C\:\\"Program Files"\\nodejs && echo node.dir=C\:\\"Program Files"\\nodejs) > ${{ github.workspace }}/local.properties
+        #run: (echo npm.dir=C\:\\hostedtoolcache\\windows\\node\\14.18.3\\x64 && echo node.dir=C\:\\hostedtoolcache\\windows\\node\\14.18.3\\x64) > ${{ github.workspace }}/local.properties
+      - run: dir ${{ github.workspace }}
+      - run: type ${{ github.workspace }}/local.properties
+      - id: main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        uses: Sri-hari/HarmonyOsSdk@jstest1
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with: 
+          name: assets-for-download
+          path: build\outputs\hap\debug\phone
